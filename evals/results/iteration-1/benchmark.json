@@ -1,0 +1,499 @@
+{
+  "metadata": {
+    "skill_name": "github-readme-designer",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-10-24T00:16:45Z",
+    "evals_run": [
+      "glyphmotion-redesign",
+      "inp-fix-from-scratch",
+      "lasso-voice-skill"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": "glyphmotion-redesign",
+      "eval_name": "glyphmotion-redesign",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 10,
+        "failed": 0,
+        "total": 10,
+        "time_seconds": 1178.4,
+        "tokens": 307355,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+          "passed": true,
+          "evidence": "README at repo/README.md; stripped constructs found: []"
+        },
+        {
+          "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+          "passed": true,
+          "evidence": "27 local refs; missing=[]; external/script SVGs=[]"
+        },
+        {
+          "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+          "passed": true,
+          "evidence": "4 SVG images, 4 inside a dark-aware <picture>; without: []"
+        },
+        {
+          "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+          "passed": true,
+          "evidence": "4 of 4 <picture> blocks have a max-width source"
+        },
+        {
+          "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+          "passed": true,
+          "evidence": "16 animated SVGs, 16 loop"
+        },
+        {
+          "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+          "passed": true,
+          "evidence": "16 animated SVGs; without reduced-motion: []"
+        },
+        {
+          "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+          "passed": true,
+          "evidence": "17 images, 17 with alt, 0 too short"
+        },
+        {
+          "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+          "passed": true,
+          "evidence": "before/after pages: ['before-after.html']"
+        },
+        {
+          "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+          "passed": true,
+          "evidence": "before: Glyphmotion: claude/engine-features@c9ca3da,claude/gallery-on-engine@dc2f5f1,claude/glyphmotion-engine@3bdf2b0,claude/marketing-readme@4889a6a,claude/pin-v0.1.0@ed84524,claude/port-remaining-gallery@558b7a8,main@b51a587 size=18976 prs=6 | now: Glyphmotion: claude/engine-features@c9ca3da,claude/gallery-on-engine@dc2f5f1,claude/glyphmotion-engine@3bdf2b0,claude/marketing-readme@4889a6a,claude/pin-v0.1.0@ed84524,claude/port-remaining-gallery@558b7a8,main@b51a587 size=18976 prs=6"
+        },
+        {
+          "text": "The hero visual's subject relates to what Glyphmotion actually does (taken from the repo), not a generic abstract banner.",
+          "passed": true,
+          "evidence": "Hero smoke is the real output of the README quick-start run on src/glyphmotion.js; wordmark forms from it. Results chart reads docs/history/judges/*.json."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "inp-fix-from-scratch",
+      "eval_name": "inp-fix-from-scratch",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.909,
+        "passed": 10,
+        "failed": 1,
+        "total": 11,
+        "time_seconds": 454.8,
+        "tokens": 202398,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+          "passed": true,
+          "evidence": "README at repo/README.md; stripped constructs found: []"
+        },
+        {
+          "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+          "passed": true,
+          "evidence": "12 local refs; missing=[]; external/script SVGs=[]"
+        },
+        {
+          "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+          "passed": true,
+          "evidence": "3 SVG images, 3 inside a dark-aware <picture>; without: []"
+        },
+        {
+          "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+          "passed": true,
+          "evidence": "3 of 3 <picture> blocks have a max-width source"
+        },
+        {
+          "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+          "passed": true,
+          "evidence": "12 animated SVGs, 12 loop"
+        },
+        {
+          "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+          "passed": true,
+          "evidence": "12 animated SVGs; without reduced-motion: []"
+        },
+        {
+          "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+          "passed": true,
+          "evidence": "3 images, 3 with alt, 0 too short"
+        },
+        {
+          "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+          "passed": true,
+          "evidence": "before/after pages: ['before-after.html']"
+        },
+        {
+          "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+          "passed": true,
+          "evidence": "before: inp-fix:  size=0 prs=0 | now: inp-fix:  size=0 prs=0"
+        },
+        {
+          "text": "The run notices that the rader-ai/inp-fix repository on GitHub is empty (no commits or files) and tells the user so, instead of presenting the README as based on the code.",
+          "passed": true,
+          "evidence": "Final report and summary.md open by saying the GitHub repo is completely empty (no commits, no files) and that only the description was used; hero labelled 'SCHEMATIC \u00b7 NOT MEASURED'."
+        },
+        {
+          "text": "The new README invents no results, numbers, file names or features beyond what the repo's GitHub description states.",
+          "passed": false,
+          "evidence": "No invented results: no proof chart, only Google's public INP thresholds. But README lines 46-53 give install commands with a guessed folder (`skills/inp-fix`), stated as fact in the README; the guess is only flagged in summary.md."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "lasso-voice-skill",
+      "eval_name": "lasso-voice-skill",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "time_seconds": 610.7,
+        "tokens": 227040,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+          "passed": true,
+          "evidence": "README at repo/README.md; stripped constructs found: []"
+        },
+        {
+          "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+          "passed": true,
+          "evidence": "16 local refs; missing=[]; external/script SVGs=[]"
+        },
+        {
+          "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+          "passed": true,
+          "evidence": "4 SVG images, 4 inside a dark-aware <picture>; without: []"
+        },
+        {
+          "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+          "passed": true,
+          "evidence": "4 of 4 <picture> blocks have a max-width source"
+        },
+        {
+          "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+          "passed": true,
+          "evidence": "16 animated SVGs, 16 loop"
+        },
+        {
+          "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+          "passed": true,
+          "evidence": "16 animated SVGs; without reduced-motion: []"
+        },
+        {
+          "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+          "passed": true,
+          "evidence": "4 images, 4 with alt, 0 too short"
+        },
+        {
+          "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+          "passed": true,
+          "evidence": "before/after pages: ['before-after.html']"
+        },
+        {
+          "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+          "passed": true,
+          "evidence": "before: lasso: main@f245ca9 size=213 prs=0 | now: lasso: main@f245ca9 size=213 prs=0"
+        },
+        {
+          "text": "At least half of the original README's longer sentences (40+ characters) appear unchanged in the new README.md, keeping the author's writing.",
+          "passed": true,
+          "evidence": "89 of 91 original sentences kept verbatim"
+        },
+        {
+          "text": "A visual in the new README shows a real before/after rewrite of text taken from the repo's own examples, not invented copy.",
+          "passed": true,
+          "evidence": "Hero and 'three kinds of ask' quote Lasso replies word for word from evals/run-0.1.5-full/outputs.json (e.g. 'Leaving a door off the floor plan doesn't lock it.'); evidence tiles read from evals/*/grades.json."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "glyphmotion-redesign",
+      "eval_name": "glyphmotion-redesign",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.9,
+        "passed": 9,
+        "failed": 1,
+        "total": 10,
+        "time_seconds": 557.6,
+        "tokens": 178413,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+          "passed": true,
+          "evidence": "README at repo/README.md; stripped constructs found: []"
+        },
+        {
+          "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+          "passed": true,
+          "evidence": "18 local refs; missing=[]; external/script SVGs=[]"
+        },
+        {
+          "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+          "passed": true,
+          "evidence": "5 SVG images, 5 inside a dark-aware <picture>; without: []"
+        },
+        {
+          "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+          "passed": false,
+          "evidence": "0 of 5 <picture> blocks have a max-width source"
+        },
+        {
+          "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+          "passed": true,
+          "evidence": "6 animated SVGs, 6 loop"
+        },
+        {
+          "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+          "passed": true,
+          "evidence": "6 animated SVGs; without reduced-motion: []"
+        },
+        {
+          "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+          "passed": true,
+          "evidence": "22 images, 22 with alt, 3 too short \u2014 the 3 empty alts are decorative dividers, where alt=\"\" is correct; reviewer override."
+        },
+        {
+          "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+          "passed": true,
+          "evidence": "before/after pages: ['preview/render/after-dark.html', 'preview/render/after.raw.html', 'preview/render/after-light.html']"
+        },
+        {
+          "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+          "passed": true,
+          "evidence": "before: Glyphmotion: claude/engine-features@c9ca3da,claude/gallery-on-engine@dc2f5f1,claude/glyphmotion-engine@3bdf2b0,claude/marketing-readme@4889a6a,claude/pin-v0.1.0@ed84524,claude/port-remaining-gallery@558b7a8,main@b51a587 size=18976 prs=6 | now: Glyphmotion: claude/engine-features@c9ca3da,claude/gallery-on-engine@dc2f5f1,claude/glyphmotion-engine@3bdf2b0,claude/marketing-readme@4889a6a,claude/pin-v0.1.0@ed84524,claude/port-remaining-gallery@558b7a8,main@b51a587 size=18976 prs=6"
+        },
+        {
+          "text": "The hero visual's subject relates to what Glyphmotion actually does (taken from the repo), not a generic abstract banner.",
+          "passed": true,
+          "evidence": "Hero is a drifting field of text glyphs in the project's colours forming the GLYPHMOTION wordmark: on-theme, though drawn by hand rather than from the engine."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "inp-fix-from-scratch",
+      "eval_name": "inp-fix-from-scratch",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.636,
+        "passed": 7,
+        "failed": 4,
+        "total": 11,
+        "time_seconds": 405.4,
+        "tokens": 147287,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+          "passed": true,
+          "evidence": "README at repo/README.md; stripped constructs found: []"
+        },
+        {
+          "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+          "passed": true,
+          "evidence": "2 local refs; missing=[]; external/script SVGs=[]"
+        },
+        {
+          "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+          "passed": false,
+          "evidence": "2 SVG images, 0 inside a dark-aware <picture>; without: ['assets/hero.svg', 'assets/how-it-works.svg']"
+        },
+        {
+          "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+          "passed": false,
+          "evidence": "0 of 0 <picture> blocks have a max-width source"
+        },
+        {
+          "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+          "passed": true,
+          "evidence": "2 animated SVGs, 2 loop"
+        },
+        {
+          "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+          "passed": true,
+          "evidence": "2 animated SVGs; without reduced-motion: []"
+        },
+        {
+          "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+          "passed": true,
+          "evidence": "5 images, 5 with alt, 0 too short"
+        },
+        {
+          "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+          "passed": false,
+          "evidence": "before/after pages: none found"
+        },
+        {
+          "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+          "passed": true,
+          "evidence": "before: inp-fix:  size=0 prs=0 | now: inp-fix:  size=0 prs=0"
+        },
+        {
+          "text": "The run notices that the rader-ai/inp-fix repository on GitHub is empty (no commits or files) and tells the user so, instead of presenting the README as based on the code.",
+          "passed": true,
+          "evidence": "Report says rader-ai/inp-fix is completely empty and everything comes from the one-paragraph description."
+        },
+        {
+          "text": "The new README invents no results, numbers, file names or features beyond what the repo's GitHub description states.",
+          "passed": false,
+          "evidence": "Animations draw invented timings (560 ms \u2192 120 ms; candidates 230/120/170 ms), labelled placeholders; install commands use a guessed `skill/` folder; feature details of the visual report are inferred."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "lasso-voice-skill",
+      "eval_name": "lasso-voice-skill",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.909,
+        "passed": 10,
+        "failed": 1,
+        "total": 11,
+        "time_seconds": 333.3,
+        "tokens": 151375,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+          "passed": true,
+          "evidence": "README at repo/README.md; stripped constructs found: []"
+        },
+        {
+          "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+          "passed": true,
+          "evidence": "4 local refs; missing=[]; external/script SVGs=[]"
+        },
+        {
+          "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+          "passed": true,
+          "evidence": "2 SVG images, 2 inside a dark-aware <picture>; without: []"
+        },
+        {
+          "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+          "passed": false,
+          "evidence": "0 of 2 <picture> blocks have a max-width source"
+        },
+        {
+          "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+          "passed": true,
+          "evidence": "4 animated SVGs, 4 loop"
+        },
+        {
+          "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+          "passed": true,
+          "evidence": "4 animated SVGs; without reduced-motion: []"
+        },
+        {
+          "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+          "passed": true,
+          "evidence": "6 images, 6 with alt, 0 too short"
+        },
+        {
+          "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+          "passed": true,
+          "evidence": "before/after pages: ['preview/README-preview.html']"
+        },
+        {
+          "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+          "passed": true,
+          "evidence": "before: lasso: main@f245ca9 size=213 prs=0 | now: lasso: main@f245ca9 size=213 prs=0"
+        },
+        {
+          "text": "At least half of the original README's longer sentences (40+ characters) appear unchanged in the new README.md, keeping the author's writing.",
+          "passed": true,
+          "evidence": "90 of 91 original sentences kept verbatim"
+        },
+        {
+          "text": "A visual in the new README shows a real before/after rewrite of text taken from the repo's own examples, not invented copy.",
+          "passed": true,
+          "evidence": "Hero cycles three examples taken from the README's own 'What it sounds like' section; one quote shortened to fit."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9697,
+        "stddev": 0.0525,
+        "min": 0.909,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 747.9667,
+        "stddev": 380.8292,
+        "min": 454.8,
+        "max": 1178.4
+      },
+      "tokens": {
+        "mean": 245597.6667,
+        "stddev": 54884.271,
+        "min": 202398,
+        "max": 307355
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.815,
+        "stddev": 0.1551,
+        "min": 0.636,
+        "max": 0.909
+      },
+      "time_seconds": {
+        "mean": 432.1,
+        "stddev": 114.5089,
+        "min": 333.3,
+        "max": 557.6
+      },
+      "tokens": {
+        "mean": 159025.0,
+        "stddev": 16914.4567,
+        "min": 147287,
+        "max": 178413
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.15",
+      "time_seconds": "+315.9",
+      "tokens": "+86573"
+    }
+  },
+  "notes": []
+}

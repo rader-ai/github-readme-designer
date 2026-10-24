@@ -1,0 +1,17 @@
+{
+  "eval_name": "lasso-voice-skill",
+  "prompt": "The README for my lasso repo (rader-ai/lasso) is all text. Make it look designed and animated so people get what it does in a few seconds. Leave my writing alone where it's good. Don't push, just put the result somewhere I can look at.",
+  "assertions": [
+    "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+    "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+    "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+    "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+    "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+    "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+    "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+    "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+    "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+    "At least half of the original README's longer sentences (40+ characters) appear unchanged in the new README.md, keeping the author's writing.",
+    "A visual in the new README shows a real before/after rewrite of text taken from the repo's own examples, not invented copy."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "expectations": [
+    {
+      "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+      "passed": true,
+      "evidence": "README at repo/README.md; stripped constructs found: []"
+    },
+    {
+      "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+      "passed": true,
+      "evidence": "27 local refs; missing=[]; external/script SVGs=[]"
+    },
+    {
+      "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+      "passed": true,
+      "evidence": "4 SVG images, 4 inside a dark-aware <picture>; without: []"
+    },
+    {
+      "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+      "passed": true,
+      "evidence": "4 of 4 <picture> blocks have a max-width source"
+    },
+    {
+      "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+      "passed": true,
+      "evidence": "16 animated SVGs, 16 loop"
+    },
+    {
+      "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+      "passed": true,
+      "evidence": "16 animated SVGs; without reduced-motion: []"
+    },
+    {
+      "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+      "passed": true,
+      "evidence": "17 images, 17 with alt, 0 too short"
+    },
+    {
+      "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+      "passed": true,
+      "evidence": "before/after pages: ['before-after.html']"
+    },
+    {
+      "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+      "passed": true,
+      "evidence": "before: Glyphmotion: claude/engine-features@c9ca3da,claude/gallery-on-engine@dc2f5f1,claude/glyphmotion-engine@3bdf2b0,claude/marketing-readme@4889a6a,claude/pin-v0.1.0@ed84524,claude/port-remaining-gallery@558b7a8,main@b51a587 size=18976 prs=6 | now: Glyphmotion: claude/engine-features@c9ca3da,claude/gallery-on-engine@dc2f5f1,claude/glyphmotion-engine@3bdf2b0,claude/marketing-readme@4889a6a,claude/pin-v0.1.0@ed84524,claude/port-remaining-gallery@558b7a8,main@b51a587 size=18976 prs=6"
+    },
+    {
+      "text": "The hero visual's subject relates to what Glyphmotion actually does (taken from the repo), not a generic abstract banner.",
+      "passed": true,
+      "evidence": "Hero smoke is the real output of the README quick-start run on src/glyphmotion.js; wordmark forms from it. Results chart reads docs/history/judges/*.json."
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

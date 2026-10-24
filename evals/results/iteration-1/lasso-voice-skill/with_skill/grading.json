@@ -1,0 +1,65 @@
+{
+  "expectations": [
+    {
+      "text": "The new README.md contains no inline <svg>, <style>, <script> or style=\"\" attributes (all of which GitHub strips).",
+      "passed": true,
+      "evidence": "README at repo/README.md; stripped constructs found: []"
+    },
+    {
+      "text": "Every image the new README.md references exists in the repo and, if it is an SVG, loads nothing external and contains no script.",
+      "passed": true,
+      "evidence": "16 local refs; missing=[]; external/script SVGs=[]"
+    },
+    {
+      "text": "Every <picture>/image visual in the new README.md has a dark-mode variant selected with prefers-color-scheme: dark.",
+      "passed": true,
+      "evidence": "4 SVG images, 4 inside a dark-aware <picture>; without: []"
+    },
+    {
+      "text": "Every <picture> visual in the new README.md has a phone-width variant selected with a max-width media query.",
+      "passed": true,
+      "evidence": "4 of 4 <picture> blocks have a max-width source"
+    },
+    {
+      "text": "At least one referenced SVG animates with CSS keyframes or SMIL, and its animations loop (infinite) rather than playing once.",
+      "passed": true,
+      "evidence": "16 animated SVGs, 16 loop"
+    },
+    {
+      "text": "Every animated SVG the new README.md references includes a prefers-reduced-motion rule.",
+      "passed": true,
+      "evidence": "16 animated SVGs; without reduced-motion: []"
+    },
+    {
+      "text": "Every image in the new README.md has alt text of at least 8 characters describing what it shows.",
+      "passed": true,
+      "evidence": "4 images, 4 with alt, 0 too short"
+    },
+    {
+      "text": "An HTML file in the outputs shows the original README (or states there was none) alongside or before the new README.",
+      "passed": true,
+      "evidence": "before/after pages: ['before-after.html']"
+    },
+    {
+      "text": "Nothing was pushed to GitHub: the repo's remote branches, default branch head and PR list are unchanged by the run.",
+      "passed": true,
+      "evidence": "before: lasso: main@f245ca9 size=213 prs=0 | now: lasso: main@f245ca9 size=213 prs=0"
+    },
+    {
+      "text": "At least half of the original README's longer sentences (40+ characters) appear unchanged in the new README.md, keeping the author's writing.",
+      "passed": true,
+      "evidence": "89 of 91 original sentences kept verbatim"
+    },
+    {
+      "text": "A visual in the new README shows a real before/after rewrite of text taken from the repo's own examples, not invented copy.",
+      "passed": true,
+      "evidence": "Hero and 'three kinds of ask' quote Lasso replies word for word from evals/run-0.1.5-full/outputs.json (e.g. 'Leaving a door off the floor plan doesn't lock it.'); evidence tiles read from evals/*/grades.json."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  }
+}

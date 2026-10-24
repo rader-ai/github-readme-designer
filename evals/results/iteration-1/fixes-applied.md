@@ -1,0 +1,6 @@
+- svgkit reveal()/grow()/draw() with off>=100: the trailing '100% {reset}' frame overrides the hold, so the element fades/shrinks across the hold. Fix: skip the reset frame when off>=100. (reported by inp-fix with_skill run)
+- Empty/unbuildable repo: never write install commands, file paths or option names as fact when the code isn't available. Either stop and ask, or put a visible "TODO: confirm" in the README itself (not only in a summary). (inp-fix with_skill)
+- Bounds check: Glyphmotion hero-narrow clips the last letter of "motion" at the right edge. Add an automated overflow check (headless browser: getBBox of every element at the finished frame vs viewBox, with padding) to the skill's checks; text_width estimates aren't enough for drawn/pixel lettering. (glyphmotion with_skill)
+- Runs can't always write summary.md (harness blocked one); the skill's deliver step should put the summary in its final message, files optional.
+- Grader: alt-text assertion should exempt decorative images with alt="".
+- Cost: with skill ~1.6x tokens, ~1.7x time (glyphmotion with skill took 20 min / 112 tool calls). Look at transcripts for wasted loops before the next round.

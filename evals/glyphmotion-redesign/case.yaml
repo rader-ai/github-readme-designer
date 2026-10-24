@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: glyphmotion-redesign
+expected_outcome: |
+  A redesigned README for rader-ai/Glyphmotion with a hero that shows what the project does, animated light/dark/phone visuals that pass the skill's lint, a before/after page, and no changes pushed to GitHub.
