@@ -24,6 +24,7 @@ picture. No dependencies beyond the standard library.
 from __future__ import annotations
 
 import pathlib
+import re
 from xml.sax.saxutils import escape
 
 MONO = "ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace"
@@ -142,6 +143,9 @@ def count_up(prefix: str, cycle: float, values: list, start: float, end: float,
     moves with the number.
     """
     css, out, n = [], [], len(values)
+    # Merge any class passed in attrs with the per-value class, so the element has one class attribute.
+    m = re.search(r'class="([^"]*)"', attrs)
+    extra, rest = (" " + m.group(1), attrs.replace(m.group(0), "").strip()) if m else ("", attrs)
     for i, v in enumerate(values):
         on = start + (end - start) * i / n
         cls = f"{prefix}{i}"
@@ -151,7 +155,7 @@ def count_up(prefix: str, cycle: float, values: list, start: float, end: float,
             off = start + (end - start) * (i + 1) / n
             frames = f"0%,{on:.1f}% {{ opacity: 0; }} {on + .1:.1f}%,{off:.1f}% {{ opacity: 1; }} {off + .1:.1f}%,100% {{ opacity: 0; }}"
         css.append(_anim(cls, cycle, frames))
-        out.append(f'<text class="{cls}" x="{x:.1f}" y="{y:.1f}" {attrs} opacity="{1 if i == n - 1 else 0}">{esc(v)}{esc(unit)}</text>')
+        out.append(f'<text class="{cls}{extra}" x="{x:.1f}" y="{y:.1f}" {rest} opacity="{1 if i == n - 1 else 0}">{esc(v)}{esc(unit)}</text>')
     return "".join(css), "".join(out)
 
 
